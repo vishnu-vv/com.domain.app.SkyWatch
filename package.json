@@ -11,7 +11,8 @@
     ]
   },
   "scripts": {
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "start": "cross-env LNG_LIVE_RELOAD=true LNG_LIVE_RELOAD_PORT=8991 lng dev"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",
@@ -21,6 +22,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "cross-env": "^7.0.3"
   }
 }
