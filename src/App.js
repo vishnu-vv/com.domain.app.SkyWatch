@@ -43,7 +43,7 @@ export default class App extends Lightning.Component {
 
   _init() {
     this.index = 0
-    this.dataLength = 6
+    this.dataLength = 9
     const movieList = []
     for (let i = 0; i < this.dataLength; i++) {
       movieList.push({
@@ -53,5 +53,25 @@ export default class App extends Lightning.Component {
       })
     }
     this.tag('MovieList').children = movieList
+  }
+
+  _handleLeft() {
+    if (this.index === 0) {
+      this.index = this.dataLength - 1
+    } else {
+      this.index -= 1
+    }
+  }
+
+  _handleRight() {
+    if (this.index === this.dataLength - 1) {
+      this.index = 0
+    } else {
+      this.index += 1
+    }
+  }
+
+  _getFocused() {
+    return this.tag('MovieList').children[this.index]
   }
 }
