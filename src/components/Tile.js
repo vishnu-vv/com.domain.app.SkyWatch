@@ -12,18 +12,48 @@ export default class Tile extends Lightning.Component {
       },
       Label: {
         x: 10,
-        y: 302,
+        y: 480,
         color: 0xff000000,
-        text: { fontSize: 32 },
+        text: { fontSize: 28 },
+      },
+      Details: {
+        x: 10,
+        y: 550,
+        rect: true,
+        visible: false,
+        text: { fontSize: 28 },
+        Rating: {
+          x: 0,
+          y: 0,
+          text: { fontSize: 28 },
+          label: { text: 'Rating: ' },
+        },
+        ReleaseDate: {
+          x: 0,
+          y: 40,
+          text: { fontSize: 28, text: 'Release Date: ' },
+          label: { text: 'Release Date: ' },
+        },
+        Overview: {
+          x: 0,
+          y: 80,
+          text: { fontSize: 28 },
+          label: { text: 'Overview: ' },
+        },
       },
     }
   }
 
   set item(obj) {
-    const { label, src } = obj
+    const { label, src, rating, overview, releaseDate } = obj
     this.patch({
       Image: { src },
       Label: { text: label.toString() },
+      Details: {
+        Rating: { text: 'Rating: ' + rating.toString() },
+        ReleaseDate: { text: 'Release Date: ' + releaseDate.toString() },
+        Overview: { text: 'Overview: ' + overview.toString() },
+      },
     })
   }
 
@@ -33,6 +63,7 @@ export default class Tile extends Lightning.Component {
       Label: {
         smooth: { color: 0xffffffff },
       },
+      Details: { visible: true },
     })
   }
 
@@ -42,6 +73,7 @@ export default class Tile extends Lightning.Component {
       Label: {
         smooth: { color: 0xff000000 },
       },
+      Details: { visible: false },
     })
   }
 }
