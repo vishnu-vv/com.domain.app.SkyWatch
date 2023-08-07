@@ -4,12 +4,21 @@
       "clearColor": "0x00000000",
       "useImageWorker": true
     },
-    "debug": false
+    "debug": false,
+    "log": true
   },
   "platformSettings": {
     "path": "./static",
     "log": true,
     "showVersion": true,
-    "inspector": true
+    "inspector": true,
+    "router": {
+      "lazyCreate": true,
+      "lazyDestroy": true,
+      "gcOnUnload": true,
+      "backtrack": true,
+      "reuseInstance": false,
+      "destroyOnHistoryBack": false
+    }
   }
 }
