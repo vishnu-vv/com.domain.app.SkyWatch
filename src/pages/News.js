@@ -41,21 +41,6 @@ export default class News extends Lightning.Component {
     }
   }
 
-  repositionWrapper() {
-    const slider = this.tag('Slider')
-    const sliderWidth = this.tag('Newslist').w
-    const currentWrapperX = slider.transition('x').targetvalue || slider.x
-    const currentFocus = slider.children[this.index]
-    const currentFocusX = currentFocus.x + currentWrapperX
-    const currentFocusOuterWidth = currentFocus.x + currentFocus.w
-
-    if (currentFocusX < 0) {
-      slider.setSmooth('x', -currentFocus.x)
-    } else if (currentFocusOuterWidth > sliderWidth) {
-      slider.setSmooth('x', sliderWidth - currentFocusOuterWidth)
-    }
-  }
-
   _init() {
     this.index = 0
   }
@@ -76,7 +61,6 @@ export default class News extends Lightning.Component {
     } else {
       this.index -= 1
     }
-    this.repositionWrapper()
   }
 
   _handleDownRelease() {
@@ -85,7 +69,6 @@ export default class News extends Lightning.Component {
     } else {
       this.index += 1
     }
-    this.repositionWrapper()
   }
 
   _getFocused() {
