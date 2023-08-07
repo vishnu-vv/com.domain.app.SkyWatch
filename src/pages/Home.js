@@ -1,4 +1,4 @@
-import { Utils, Lightning } from '@lightningjs/sdk'
+import { Utils, Lightning, Router } from '@lightningjs/sdk'
 import Button from '../components/Button'
 
 export default class Home extends Lightning.Component {
@@ -56,6 +56,9 @@ export default class Home extends Lightning.Component {
         _handleRight() {
           this._setState('News')
         }
+        _handleEnter() {
+          Router.navigate('movies')
+        }
       },
       class News extends this {
         _getFocused() {
@@ -63,6 +66,9 @@ export default class Home extends Lightning.Component {
         }
         _handleLeft() {
           this._setState('Movies')
+        }
+        _handleEnter() {
+          Router.navigate('news')
         }
       },
     ]
