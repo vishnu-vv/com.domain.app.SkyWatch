@@ -70,7 +70,7 @@ export default class Movies extends Lightning.Component {
     this._Slider.children = []
   }
 
-  _handleLeft() {
+  _handleLeftRelease() {
     if (this.index === 0) {
       this.index = this.dataLength - 1
     } else {
@@ -79,7 +79,7 @@ export default class Movies extends Lightning.Component {
     this.repositionWrapper()
   }
 
-  _handleRight() {
+  _handleRightRelease() {
     if (this.index === this.dataLength - 1) {
       this.index = 0
     } else {
