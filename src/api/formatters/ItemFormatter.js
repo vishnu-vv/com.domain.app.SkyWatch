@@ -13,9 +13,9 @@ export function convertItemsToTiles(items = []) {
         overview: item.overview || '',
         releaseDate: item.release_date || item.first_air_date || '',
       },
-      w: 350,
-      h: 525,
-      x: index * 375,
+      w: 385,
+      h: 545,
+      x: index * 425,
     }
   })
 }

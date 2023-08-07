@@ -12,13 +12,13 @@ export default class Tile extends Lightning.Component {
       },
       Label: {
         x: 10,
-        y: 480,
+        y: 500,
         color: 0xff000000,
         text: { fontSize: 28 },
       },
       Details: {
         x: 10,
-        y: 550,
+        y: 575,
         rect: true,
         visible: false,
         text: { fontSize: 28 },
@@ -59,7 +59,7 @@ export default class Tile extends Lightning.Component {
 
   _focus() {
     this.patch({
-      smooth: { color: 0xff763ffc, scale: 1.1 },
+      smooth: { color: 0xffff0000, scale: 1.1 },
       Label: {
         smooth: { color: 0xffffffff },
       },
