@@ -1,9 +1,8 @@
 {
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
-  "eslint.validate": [
-    "javascript",
-  ],
+  "eslint.validate": ["javascript"],
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   }
