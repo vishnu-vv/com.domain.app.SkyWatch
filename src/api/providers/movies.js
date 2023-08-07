@@ -17,6 +17,5 @@ export default function (page) {
       page._Slider.children = tiles
     })
   }
-  //Initial load call twice to get enough rows
-  return page.getMoreRows().then(page.getMoreRows)
+  return page.getMoreRows()
 }
