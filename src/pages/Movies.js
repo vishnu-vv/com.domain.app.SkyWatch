@@ -59,16 +59,17 @@ export default class Movies extends Lightning.Component {
 
   _init() {
     this.index = 0
-    this.dataLength = 9
-    const movieList = []
-    for (let i = 0; i < this.dataLength; i++) {
-      movieList.push({
-        type: Tile,
-        x: i * (300 + 30),
-        item: { label: `Movie ${i + 1}`, src: `./images/sample${i + 1}.jpg` },
-      })
-    }
-    this.tag('Slider').children = movieList
+    this.dataLength = 7
+  }
+
+  getMoreRows() {}
+
+  get _Slider() {
+    return this.tag('Content.MovieList.Slider')
+  }
+
+  reset() {
+    this._Slider.children = []
   }
 
   _handleLeft() {
