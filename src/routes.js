@@ -1,4 +1,5 @@
 import Home from './pages/Home'
+import Movies from './pages/Movies'
 
 export const routes = {
   root: 'home',
@@ -6,6 +7,10 @@ export const routes = {
     {
       path: 'home',
       component: Home,
+    },
+    {
+      path: 'movies',
+      component: Movies,
     },
   ],
 }
