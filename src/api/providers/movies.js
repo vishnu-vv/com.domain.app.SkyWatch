@@ -7,11 +7,12 @@ export default function (page) {
   }
   page.apiIndex = 0
   page.loaded = true
+  page.dataLength = 7
   page.reset()
   page.getMoreRows = () => {
     page.apiIndex++
     return api.get('/trending/all/week?page=' + page.apiIndex).then((trending) => {
-      let results = trending.results.filter((r) => !r.adult).slice(0, 7)
+      let results = trending.results.filter((r) => !r.adult).slice(0, page.dataLength)
       let tiles = convertItemsToTiles(results)
       console.log('tiles', tiles)
       page._Slider.children = tiles

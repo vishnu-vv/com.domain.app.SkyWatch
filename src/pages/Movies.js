@@ -1,5 +1,4 @@
 import { Utils, Lightning } from '@lightningjs/sdk'
-import Tile from '../components/Tile'
 
 export default class Movies extends Lightning.Component {
   static getFonts() {
@@ -59,13 +58,12 @@ export default class Movies extends Lightning.Component {
 
   _init() {
     this.index = 0
-    this.dataLength = 7
   }
 
   getMoreRows() {}
 
   get _Slider() {
-    return this.tag('Content.MovieList.Slider')
+    return this.tag('Slider')
   }
 
   reset() {
