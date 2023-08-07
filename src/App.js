@@ -36,8 +36,24 @@ export default class App extends Lightning.Component {
           x: 380,
           y: 270,
           mount: 0.5,
+          Slider: {},
         },
       },
+    }
+  }
+
+  repositionWrapper() {
+    const slider = this.tag('Slider')
+    const sliderWidth = this.tag('MovieList').w
+    const currentWrapperX = slider.transition('x').targetvalue || slider.x
+    const currentFocus = slider.children[this.index]
+    const currentFocusX = currentFocus.x + currentWrapperX
+    const currentFocusOuterWidth = currentFocus.x + currentFocus.w
+
+    if (currentFocusX < 0) {
+      slider.setSmooth('x', -currentFocus.x)
+    } else if (currentFocusOuterWidth > sliderWidth) {
+      slider.setSmooth('x', sliderWidth - currentFocusOuterWidth)
     }
   }
 
@@ -49,10 +65,10 @@ export default class App extends Lightning.Component {
       movieList.push({
         type: Tile,
         x: i * (300 + 30),
-        item: { label: `Train ${i + 1}`, src: `./images/sample${i + 1}.jpg` },
+        item: { label: `Movie ${i + 1}`, src: `./images/sample${i + 1}.jpg` },
       })
     }
-    this.tag('MovieList').children = movieList
+    this.tag('Slider').children = movieList
   }
 
   _handleLeft() {
@@ -61,6 +77,7 @@ export default class App extends Lightning.Component {
     } else {
       this.index -= 1
     }
+    this.repositionWrapper()
   }
 
   _handleRight() {
@@ -69,9 +86,10 @@ export default class App extends Lightning.Component {
     } else {
       this.index += 1
     }
+    this.repositionWrapper()
   }
 
   _getFocused() {
-    return this.tag('MovieList').children[this.index]
+    return this.tag('Slider').children[this.index]
   }
 }
