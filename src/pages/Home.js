@@ -1,5 +1,5 @@
 import { Utils, Lightning } from '@lightningjs/sdk'
-import Tile from '../components/Tile'
+import Button from '../components/Button'
 
 export default class Home extends Lightning.Component {
   static getFonts() {
@@ -25,50 +25,47 @@ export default class Home extends Lightning.Component {
           mount: 0.5,
           x: 260,
           text: {
-            text: 'Trending Movies This Week',
+            text: 'Welcome to Sky Watch',
             fontFace: 'Regular',
             fontSize: 48,
           },
         },
-        MovieList: {
+        Menu: {
           w: 800,
           h: 350,
           x: 380,
           y: 270,
           mount: 0.5,
-          Slider: {},
+          Movies: { x: 150, h: 75, mount: 0.5, type: Button, label: 'Movies' },
+          News: { x: 400, h: 75, mount: 0.5, type: Button, label: 'News' },
         },
       },
     }
   }
 
-  repositionWrapper() {
-    const slider = this.tag('Slider')
-    const sliderWidth = this.tag('MovieList').w
-    const currentWrapperX = slider.transition('x').targetvalue || slider.x
-    const currentFocus = slider.children[this.index]
-    const currentFocusX = currentFocus.x + currentWrapperX
-    const currentFocusOuterWidth = currentFocus.x + currentFocus.w
-
-    if (currentFocusX < 0) {
-      slider.setSmooth('x', -currentFocus.x)
-    } else if (currentFocusOuterWidth > sliderWidth) {
-      slider.setSmooth('x', sliderWidth - currentFocusOuterWidth)
-    }
+  _init() {
+    this._setState('Movies')
   }
 
-  _init() {
-    this.index = 0
-    this.dataLength = 9
-    const movieList = []
-    for (let i = 0; i < this.dataLength; i++) {
-      movieList.push({
-        type: Tile,
-        x: i * (300 + 30),
-        item: { label: `Movie ${i + 1}`, src: `./images/sample${i + 1}.jpg` },
-      })
-    }
-    this.tag('Slider').children = movieList
+  static _states() {
+    return [
+      class Movies extends this {
+        _getFocused() {
+          return this.tag('Movies')
+        }
+        _handleRight() {
+          this._setState('News')
+        }
+      },
+      class News extends this {
+        _getFocused() {
+          return this.tag('News')
+        }
+        _handleLeft() {
+          this._setState('Movies')
+        }
+      },
+    ]
   }
 
   _handleLeft() {
