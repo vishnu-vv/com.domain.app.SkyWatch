@@ -12,17 +12,19 @@
   },
   "scripts": {
     "prepare": "husky install",
+    "cypress": "cypress open",
     "start": "cross-env LNG_LIVE_RELOAD=true LNG_LIVE_RELOAD_PORT=8991 lng dev"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",
     "babel-eslint": "^10.0.3",
+    "cross-env": "^7.0.3",
+    "cypress": "^12.17.3",
     "eslint": "^8.21.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
-    "prettier": "^2.7.1",
-    "cross-env": "^7.0.3"
+    "prettier": "^2.7.1"
   }
 }
