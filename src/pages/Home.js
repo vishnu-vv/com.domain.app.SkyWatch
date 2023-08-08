@@ -53,10 +53,10 @@ export default class Home extends Lightning.Component {
         _getFocused() {
           return this.tag('Movies')
         }
-        _handleRight() {
+        _handleRightRelease() {
           this._setState('News')
         }
-        _handleEnter() {
+        _handleEnterRelease() {
           Router.navigate('movies')
         }
       },
@@ -64,35 +64,13 @@ export default class Home extends Lightning.Component {
         _getFocused() {
           return this.tag('News')
         }
-        _handleLeft() {
+        _handleLeftRelease() {
           this._setState('Movies')
         }
-        _handleEnter() {
+        _handleEnterRelease() {
           Router.navigate('news')
         }
       },
     ]
-  }
-
-  _handleLeft() {
-    if (this.index === 0) {
-      this.index = this.dataLength - 1
-    } else {
-      this.index -= 1
-    }
-    this.repositionWrapper()
-  }
-
-  _handleRight() {
-    if (this.index === this.dataLength - 1) {
-      this.index = 0
-    } else {
-      this.index += 1
-    }
-    this.repositionWrapper()
-  }
-
-  _getFocused() {
-    return this.tag('Slider').children[this.index]
   }
 }
