@@ -3,7 +3,7 @@ import { Lightning, Router } from '@lightningjs/sdk'
 export default class Row extends Lightning.Component {
   static _template() {
     return {
-      w: 800,
+      w: 1000,
       h: 75,
       rect: true,
       Heading: {

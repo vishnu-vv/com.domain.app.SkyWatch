@@ -13,9 +13,10 @@ export default class NewsDetail extends Lightning.Component {
         color: 0xfffbb03b,
         src: Utils.asset('images/background.png'),
         Content: {
-          x: 100,
-          w: 1720,
-          h: 880,
+          x: 25,
+          w: 1920,
+          h: 1080,
+          scaleX: 0.9,
           rect: true,
           color: 0x00000000,
           Title: {
@@ -30,6 +31,7 @@ export default class NewsDetail extends Lightning.Component {
             mountX: 0,
             y: 300,
             text: {
+              width: 1000,
               fontFace: 'Regular',
               fontSize: 32,
             },
