@@ -1,7 +1,7 @@
 import { convertItemsToRows } from '../formatters/ItemFormatter'
 import { news } from '../../mock/news'
 
-export default function (page) {
+export const newsListProvider = function (page) {
   if (page.loaded) {
     return Promise.resolve()
   }
@@ -19,4 +19,20 @@ export default function (page) {
     })
   }
   return page.getMoreRows()
+}
+
+export const newsDetailProvider = function (page, { id }) {
+  if (page.loaded) {
+    return Promise.resolve()
+  }
+  page.loaded = true
+  page.fetchNewsData = () => {
+    return new Promise((resolve) => {
+      const newsItem = news.find((item) => item.id === parseInt(id))
+      resolve(newsItem)
+    }).then((data) => {
+      page.data = data
+    })
+  }
+  return page.fetchNewsData()
 }

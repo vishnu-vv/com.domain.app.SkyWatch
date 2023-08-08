@@ -1,8 +1,9 @@
 import Home from './pages/Home'
 import Movies from './pages/Movies'
 import News from './pages/News'
+import NewsDetail from './pages/NewsDetail'
 import moviesProvider from './api/providers/movies'
-import newsProvider from './api/providers/news'
+import { newsListProvider, newsDetailProvider } from './api/providers/news'
 import api from './api'
 
 export const routes = {
@@ -21,7 +22,12 @@ export const routes = {
     {
       path: 'news',
       component: News,
-      before: newsProvider,
+      before: newsListProvider,
+    },
+    {
+      path: 'news/:id',
+      component: NewsDetail,
+      before: newsDetailProvider,
     },
   ],
 }
