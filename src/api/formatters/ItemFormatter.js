@@ -27,8 +27,6 @@ export function convertItemsToRows(items = []) {
       item: {
         ...item,
       },
-      w: 800,
-      h: 75,
       y: index * 125,
     }
   })
