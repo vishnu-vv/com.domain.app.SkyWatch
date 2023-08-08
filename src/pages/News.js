@@ -1,10 +1,7 @@
-import { Utils, Lightning } from '@lightningjs/sdk'
+import { Utils } from '@lightningjs/sdk'
+import Page from './Page'
 
-export default class News extends Lightning.Component {
-  static getFonts() {
-    return [{ family: 'Regular', url: Utils.asset('fonts/Roboto-Regular.ttf') }]
-  }
-
+export default class News extends Page {
   static _template() {
     return {
       Background: {

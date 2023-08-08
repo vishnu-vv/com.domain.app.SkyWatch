@@ -1,11 +1,8 @@
-import { Utils, Lightning, Router } from '@lightningjs/sdk'
+import { Utils, Router } from '@lightningjs/sdk'
 import Button from '../components/Button'
+import Page from './Page'
 
-export default class Home extends Lightning.Component {
-  static getFonts() {
-    return [{ family: 'Regular', url: Utils.asset('fonts/Roboto-Regular.ttf') }]
-  }
-
+export default class Home extends Page {
   static _template() {
     return {
       Background: {
