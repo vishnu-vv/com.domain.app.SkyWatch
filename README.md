@@ -1,6 +1,6 @@
-# Movies
+# SkyWatch
 
-## com.domain.app.Movies
+## com.domain.app.SkyWatch
 
 ### Getting started
 

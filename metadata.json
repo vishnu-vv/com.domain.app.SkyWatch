@@ -1,6 +1,6 @@
 {
-  "name": "Movies",
-  "identifier": "com.domain.app.Movies",
+  "name": "SkyWatch",
+  "identifier": "com.domain.app.SkyWatch",
   "version": "1.0.0",
   "icon": "./static/icon.png"
 }

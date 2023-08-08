@@ -1,6 +1,6 @@
 {
-  "name": "com.domain.app.Movies",
-  "description": "Movies",
+  "name": "com.domain.app.SkyWatch",
+  "description": "SkyWatch lets you watch movies and see latest news",
   "dependencies": {
     "@lightningjs/sdk": "^5.4.0"
   },
