@@ -1,10 +1,7 @@
-import { Utils, Lightning } from '@lightningjs/sdk'
+import { Utils } from '@lightningjs/sdk'
+import Page from './Page'
 
-export default class NewsDetail extends Lightning.Component {
-  static getFonts() {
-    return [{ family: 'Regular', url: Utils.asset('fonts/Roboto-Regular.ttf') }]
-  }
-
+export default class NewsDetail extends Page {
   static _template() {
     return {
       Background: {
@@ -24,7 +21,7 @@ export default class NewsDetail extends Lightning.Component {
             y: 200,
             text: {
               fontFace: 'Regular',
-              fontSize: 48,
+              fontSize: 56,
             },
           },
           Description: {
@@ -39,10 +36,6 @@ export default class NewsDetail extends Lightning.Component {
         },
       },
     }
-  }
-
-  _init() {
-    this.index = 0
   }
 
   _onDataProvided() {
