@@ -1,4 +1,4 @@
-import { Lightning } from '@lightningjs/sdk'
+import { Lightning, Router } from '@lightningjs/sdk'
 
 export default class Row extends Lightning.Component {
   static _template() {
@@ -16,7 +16,8 @@ export default class Row extends Lightning.Component {
   }
 
   set item(obj) {
-    const { title } = obj
+    const { title, id } = obj
+    this.itemId = id
     this.patch({
       Heading: { text: title.toString() },
     })
@@ -38,5 +39,9 @@ export default class Row extends Lightning.Component {
         smooth: { color: 0xff000000 },
       },
     })
+  }
+
+  _handleEnterRelease() {
+    Router.navigate(`news/${this.itemId}`)
   }
 }
