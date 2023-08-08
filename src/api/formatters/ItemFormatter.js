@@ -25,8 +25,7 @@ export function convertItemsToRows(items = []) {
     return {
       type: Row,
       item: {
-        title: item.title || item.name,
-        src: item.src || '',
+        ...item,
       },
       w: 800,
       h: 75,
